@@ -71,6 +71,17 @@ namespace PrimeiroProjeto
             //Exe35(); funciona , meu codigo ta diferente, porem funcionou igual 
             //Exe36(); fiquei meio confuso com a parada de list, confesso, tendo que declarar o employee nao pegando os dados e so para achar a id, achei confuso pra crl,nsei se realmente é assim que seria usado em um sistema de verdade
             //Exe37(); fiz 90% do codigo e os outros 10% eu n tinha ideia de como fazer e depois de ver a resposta eu nao saberia nem fudendo
+
+            //Exercicios Aleátorios
+
+            //Exe38(); correto
+            //Exe39(); nem sabia oq era palindromo, e nem entendi a conta, mas funcionou
+            //Exe40(); correto
+            //Exe41(); correto
+            //Exe42(); correto
+            Exe43();
+            Exe44();
+            Exe45();
         }
         
         
@@ -98,6 +109,7 @@ namespace PrimeiroProjeto
             Console.WriteLine("Separador decimal invariant culture: " + medida.ToString("F3", CultureInfo.InvariantCulture));
         }
 
+        #region Estrutura Sequencial
         // Estrutura Sequencial
         static void Exe2()
         {
@@ -240,9 +252,10 @@ namespace PrimeiroProjeto
             Console.WriteLine("QUADRADO: " + quadrado.ToString("F3", CultureInfo.InvariantCulture));
             Console.WriteLine("RETANGULO: " + retangulo.ToString("F3", CultureInfo.InvariantCulture));
         }
-        
+        #endregion
+        #region Estrutura Condicional
         //Estrutura Condicional 
-        
+
         static void Exe9() 
         {
             Console.WriteLine("Insira um número inteiro:");
@@ -470,9 +483,10 @@ namespace PrimeiroProjeto
             }
 
         }
-
+        #endregion
+        #region Estrutura Repetitiva While
         // Estrutura Repetitiva While
-        
+
         static void Exe17()
         {
             Console.WriteLine("Insira sua senha:");
@@ -582,7 +596,8 @@ namespace PrimeiroProjeto
             Console.WriteLine("Diesel: " + diesel);
             
         }
-
+        #endregion
+        #region Estrutura Repetitiva For
         // Estrutura Repetitiva For
         static void Exe20()
         {
@@ -707,7 +722,8 @@ namespace PrimeiroProjeto
                 Console.WriteLine(i.ToString() + Math.Pow(i, 2) + Math.Pow(i, 3));
             }
         }
-        
+        #endregion
+        #region Usando Classes
         // Classes 
         static void Exe27()
         {
@@ -889,7 +905,8 @@ namespace PrimeiroProjeto
 
             Console.WriteLine("Valor a ser pago em reais = " + result.ToString("F2", CultureInfo.InvariantCulture));
         }
-
+        #endregion
+        #region Construtores, this, sobrecarga, encapsulamento
         //Construtores, this, sobrecarga, encapsulamento
         static void Exe34()
         {
@@ -970,9 +987,10 @@ namespace PrimeiroProjeto
             } 
             
         }
-        
+        #endregion
+        #region Arrays, Listas, Matrizes
         //Arrays, Listas, Matrizes
-        
+
         static void Exe35()
         {
             RentRooms[] vect = new RentRooms[10];
@@ -1098,5 +1116,169 @@ namespace PrimeiroProjeto
                 }
             } 
         }
-    }
-}
+        #endregion
+        #region Exercicios Extras
+        static void Exe38() 
+        {
+            Console.WriteLine("A soma de todos os multiplos de 3 a 5 abaixo de 1000");
+
+            for(int i = 0; i <= 1000; i++) 
+            {
+                if (i % 3 == 0 || i % 5 == 0) 
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+        static void Exe39() 
+        {
+            Console.WriteLine("Insira um numero para saber se ele é um palíndromo");
+
+            int numero = int.Parse(Console.ReadLine());
+
+            void VerificaPalindromo(int numero) 
+            {
+                int numeroOriginal = numero;
+                int numeroInvertido = 0;
+                while (numero > 0) 
+                {
+                    int digito = numero % 10;
+                    numeroInvertido = numeroInvertido * 10 + digito;
+                    numero /= 10;
+                }
+                if (numeroOriginal == numeroInvertido) 
+                {
+                    Console.WriteLine("É um palíndromo");
+                }
+                else 
+                {
+                    Console.WriteLine("Não é um palíndromo");
+                }
+            }
+
+            VerificaPalindromo(numero);
+
+        }
+
+        static void Exe40() 
+        {
+            Console.WriteLine("Insira um numero para imprimir sua tabuada:");
+
+            int numero = int.Parse(Console.ReadLine());
+
+            void ImprimirTabuada(int numero)
+            {
+                for (int i = 1; i <= 10; i++)
+                {
+                    int resultado = numero * i;
+                    Console.WriteLine($"{numero} x {i} = {resultado}");
+
+                }
+            }
+
+            ImprimirTabuada(numero);
+        }
+
+        static void Exe41()
+        {
+            Console.WriteLine("Insira um numero para saber se ele é primo:");
+
+            int numero = int.Parse(Console.ReadLine());
+
+            if(numero <= 1)
+            {
+                Console.WriteLine("Não é primo");
+                return;
+            }
+            
+            void VerificarPrimo(int numero)
+            {
+                for (int i = 2; i <= Math.Sqrt(numero); i++)
+                {
+                    if (numero % i == 0)
+                    {
+                        Console.WriteLine("Não é primo");
+                        return;
+                    }
+                }
+                Console.WriteLine("É primo");
+            }
+
+            VerificarPrimo(numero);
+        }
+
+        static void Exe42()
+        {
+            Console.WriteLine("Insira um palavra para saber quantas vogais tem nela:");
+
+            string palavra = Console.ReadLine().ToLowerInvariant();
+
+            int contadorVogais = 0;
+            
+            foreach (char vogal in palavra)
+            {
+                if (vogal == 'a' || vogal == 'e' || vogal == 'i' || vogal == 'o' || vogal == 'u')
+                {
+                    contadorVogais++;
+                }
+            }
+
+            Console.WriteLine($"A palavra '{palavra}' tem {contadorVogais} vogais.");
+        }
+
+        static void Exe43()
+        {
+            Console.WriteLine("Insira 5 numeros, espaçando-os, para mostrá-los ao contrario: (???? sla mano)");   
+
+            Console.WriteLine("Insira o 1º numero: ");
+
+            int numero1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira o 2º numero: ");
+
+            int numero2 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira o 3º numero: ");
+
+            int numero3 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira o 4º numero: ");
+
+            int numero4 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira o 5º numero: ");
+
+            int numero5 = int.Parse(Console.ReadLine());
+
+            int[] numeros = new int[5];
+
+            numeros[0] = numero1;
+            numeros[1] = numero2;
+            numeros[2] = numero3;
+            numeros[3] = numero4;
+            numeros[4] = numero5;
+
+            Array.Reverse(numeros);
+
+            Console.WriteLine("");
+
+            Console.WriteLine("Numeros ao contrario: " + string.Join(" ", numeros));
+        }
+
+        static void Exe44()
+        {
+
+        }
+
+        static void Exe45()
+        {
+
+        }
+
+
+
+        #endregion
+
+    } // class exercicios
+} // namespace ConsoleApp1
