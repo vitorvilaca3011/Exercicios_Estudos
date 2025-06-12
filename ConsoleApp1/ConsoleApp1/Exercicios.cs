@@ -79,9 +79,9 @@ namespace PrimeiroProjeto
             //Exe40(); correto
             //Exe41(); correto
             //Exe42(); correto
-            Exe43();
-            Exe44();
-            Exe45();
+            //Exe43(); n entendi o exemplo prático pra q isso kkkkkkkkk mas funcionou, poderia ter usado um for ao inves de pedir numero por numero escrito
+            //Exe44(); correto
+            //Exe45(); n sei em qual contexto eu usaria a sequencia de fibonacci especificamente, mas funcionou (eu acho)
         }
         
         
@@ -1268,11 +1268,34 @@ namespace PrimeiroProjeto
 
         static void Exe44()
         {
+            Livro livro = new Livro();
 
+            livro.AdicionarLivro("O Senhor dos Anéis", "J.R.R. Tolkien", 1954);
+            livro.AdicionarLivro("1984", "George Orwell", 1949);
+            livro.AdicionarLivro("Dom Casmurro", "Machado de Assis", 1899);
+
+            livro.ImprimirLivros();
         }
 
         static void Exe45()
         {
+            Console.WriteLine("Insira um numero para imprimir a sequencia de Fibonacci:");
+            int N = int.Parse(Console.ReadLine());
+
+            List<int> fibonacci = new List<int> { 0, 1 };
+
+            for (int i = 2; i < N; i++)
+            {
+                int nextNumber = fibonacci[i - 1] + fibonacci[i - 2];
+                fibonacci.Add(nextNumber);
+            }
+
+            Console.WriteLine(N + " termos da sequencia de Fibonacci:");
+
+            foreach (int num in fibonacci)
+            {
+                Console.Write(num + " ");
+            }
 
         }
 
